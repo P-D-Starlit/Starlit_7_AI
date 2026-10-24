@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Starlit CMD 보드 소개 및 버전별 기술 자료.">
+  <title>Starlit CMD | Star-lit7 AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="starlit_cmd.css">
+</head>
+<body class="home cmd-page">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar home-header">
+    <a class="brand" href="index.html" aria-label="Star-lit7 AI 메인 페이지">
+      <img class="brand-mark" src="res/img24.png" alt="" width="46" height="46">
+      <span>Star-lit7 <b>AI</b><small>Design Your Style</small></span>
+    </a>
+    <nav class="home-nav" aria-label="주요 메뉴">
+      <a href="https://github.com/P-D-Starlit/Starlit_7_AI/releases/tag/v7.0.0" download>설치</a>
+      <a href="#support">기술지원</a>
+      <a href="#hardware">하드웨어</a>
+    </nav>
+    <!-- <nav class="home-nav" aria-label="현재 위치"><a href="index.html">홈</a><a href="index.html#hardware">하드웨어</a><a href="#resources">자료실</a></nav> -->
+  </header>
+  <main id="main" class="home-main" tabindex="-1">
+    <nav class="breadcrumb" aria-label="현재 위치"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="index.html#hardware">Hardware</a><span aria-hidden="true">/</span><span aria-current="page">Starlit CMD</span></nav>
+    <section class="cmd-hero" aria-labelledby="cmd-title">
+      <div>
+        <p class="home-eyebrow">HARDWARE DOCUMENTATION</p>
+        <h1 id="cmd-title">Starlit <span>CMD</span></h1>
+        <p class="cmd-lead">나만의 LED 패턴을 위한 작은 보드.</p>
+        <p class="section-description">Starlit CMD는 5 × 7 LED Display와 2개의 버튼을 갖춘 Mini LED Matrix 보드입니다. Starlit으로 작성한 패턴을 보드에서 실행하고, 나만의 빛을 디자인하세요.</p>
+        <a class="text-link" href="#resources">버전별 자료 보기 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="cmd-product"><img src="res/image25.png" alt="Starlit CMD LED Matrix 보드"><figcaption>5 × 7 LED Display · 2 Buttons</figcaption></figure>
+    </section>
+    <section class="cmd-overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">보드 한눈에 보기</h2>
+      <dl class="cmd-specs">
+        <div><dt>Core</dt><dd>STM32F411CEU6</dd></div>
+        <div><dt>CPU / Clock</dt><dd>ARM Cortex-M4 / 100 MHz</dd></div>
+        <div><dt>Display / Input</dt><dd>5 × 7 LED / 2 Buttons</dd></div>
+        <div><dt>Memory</dt><dd>2 MB</dd></div>
+        <div><dt>Code Unit / Variable</dt><dd>48 KB / 32 KB</dd></div>
+        <div><dt>IO</dt><dd>LED Matrix, Switch, Serial</dd></div>
+      </dl>
+      <p class="support-note">Unpacked에 소개된 사양 기준입니다. 버전별 상세 사양은 CMD 보드 Spec 자료를 확인하세요.</p>
+    </section>
+    <div id="resources" class="cmd-resources">
+      <div class="section-kicker"><span>RESOURCE LIBRARY</span><span>01 — 06</span></div>
+      <h2>문서 &amp; 다운로드</h2>
+      <p class="section-description">항목별 자료를 버전 단위로 확인하세요. 아래 버전은 양식 예시이며, 실제 자료는 등록 준비 중입니다.</p>
+      <nav class="resource-nav" aria-label="현재 위치">
+        <a href="#spec"><span>01</span> CMD 보드 Spec</a>
+        <a href="#schematic"><span>02</span> Schematic</a>
+        <a href="#gerber"><span>03</span> Gerber</a>
+        <a href="#firmware"><span>04</span> FirmWare</a>
+        <a href="#BOM"><span>05</span> BOM</a>
+        <a href="#diagram"><span>06</span> Block Diagram</a>
+      </nav>
+    </div>
+    <section class="resource-section" id="spec" aria-labelledby="spec-title">
+      <div class="resource-heading"><span class="section-number">01</span><div><p class="home-eyebrow">BOARD SPECIFICATION</p><h2 id="spec-title">CMD 보드 Spec</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <dl class="cmd-specs">
+        <div><dt>Core</dt><dd>STM32F411CEU6</dd></div>
+        <div><dt>CPU / Clock</dt><dd>ARM Cortex-M4 / 100 MHz</dd></div>
+        <div><dt>Display / Input</dt><dd>5 × 7 LED / 2 Buttons</dd></div>
+        <div><dt>Memory</dt><dd>2 MB</dd></div>
+        <div><dt>Code Unit / Variable</dt><dd>48 KB / 32 KB</dd></div>
+        <div><dt>IO</dt><dd>LED Matrix, Switch, Serial</dd></div>
+      </dl>
+      <p class="support-note">Unpacked에 소개된 사양 기준입니다. 실제 제작 사양은 기준 사양과 달라질 수 있습니다.</p>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    <section class="resource-section" id="schematic" aria-labelledby="schematic-title">
+      <div class="resource-heading"><span class="section-number">02</span><div><p class="home-eyebrow">CIRCUIT DESIGN</p><h2 id="schematic-title">Schematic</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description" lang="en">Starlit CMD 회로도.</p>
+      <p class="placeholder-copy" lang="en">최신 버전 : v1.2 (USB C to C Cable 대응 설계, Ghosting Effect 현상 방지회로 추가)</p>
+      <div class="table-scroll" role="region" aria-labelledby="schematic-title" tabindex="0">
+        <table class="download-table">
+          <caption>Schematic 버전별 다운로드</caption>
+          <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">v1.2<small>최신 버전</small></th><td>2026.10.24</td><td lang="en">USB C to C 대응 설계(v1.1)<br>Ghosting 현상 방지 회로 추가</td><td>PDF</td><td><a href="Schematics/Starlit_CMD/SCH_Starlit_CMD_1V2.pdf"><span class="download-pending">다운로드</span></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    <section class="resource-section" id="gerber" aria-labelledby="gerber-title">
+      <div class="resource-heading"><span class="section-number">03</span><div><p class="home-eyebrow">PCB FABRICATION</p><h2 id="gerber-title">Gerber</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description" lang="en">Starlit CMD 거버</p>
+      <p class="placeholder-copy" lang="en">Gerber의 Bottom에서 StarStarStar 로고 부분은 예시 내용으로, 다른 로고로 대체 가능합니다.</p>
+      <div class="table-scroll" role="region" aria-labelledby="gerber-title" tabindex="0">
+        <table class="download-table">
+          <caption>Gerber 버전별 다운로드</caption>
+          <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">v1.2<small>최신 버전</small></th><td>2026.10.24</td><td lang="en">USB C to C 대응 설계(v1.1)<br>Ghosting 현상 방지 회로 추가</td><td>ZIP</td><td><a href="Gerber/Starlit_CMD/Gerber_Starlit_CMD_1V2.zip"><span class="download-pending">다운로드</span></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    <section class="resource-section" id="firmware" aria-labelledby="firmware-title">
+      <div class="resource-heading"><span class="section-number">04</span><div><p class="home-eyebrow">BOARD SOFTWARE</p><h2 id="firmware-title">FirmWare</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description" lang="en">Starlit CMD 펌웨어</p>
+      <p class="placeholder-copy" lang="en">보드 및 버전 확인 후 사용 부탁드립니다.</p>
+      <div class="table-scroll" role="region" aria-labelledby="firmware-title" tabindex="0">
+        <table class="download-table">
+          <caption>FirmWare 버전별 다운로드</caption>
+          <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">v1.3<small>STM32F411CEU6<br>25Q16 NOR Flash</small></th><td>2026.10.24</td><td lang="en">Starlit CMD 펌웨어 1.3버전</td><td>BIN</td><td><a href="Binary/Starlit_CMD/STaRLIT_CMD_1V3.bin"><span class="download-pending">다운로드</span></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    <section class="resource-section" id="BOM" aria-labelledby="power-tree-title">
+      <div class="resource-heading"><span class="section-number">05</span><div><p class="home-eyebrow">BILL OF MATERIALS</p><h2 id="power-tree-title">BOM</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description" lang="en">Starlit CMD BOM</p>
+      <p class="placeholder-copy" lang="en">회로도 및 Gerber 버전에 맞게 사용 부탁드립니다.<br>비용 저감 차원에서 Top면만 실장, Bottom면은 수작업 진행하는 것을 권장합니다.(양면 실장시 비용 대폭 증가)</p>
+      <div class="table-scroll" role="region" aria-labelledby="power-tree-title" tabindex="0">
+        <table class="download-table">
+          <caption>Power Tree 버전별 다운로드</caption>
+          <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">v1.3<small>예시 BOM</small></th><td>미정</td><td lang="en">준비 중</td><td>PDF</td><td><span class="download-pending">준비 중</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    <section class="resource-section" id="diagram" aria-labelledby="signal-tree-title">
+      <div class="resource-heading"><span class="section-number">06</span><div><p class="home-eyebrow">POWER & SIGNAL CONNECTIONS</p><h2 id="signal-tree-title">Block Diagram</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description" lang="en">Starlit CMD Block도</p>
+      <p class="placeholder-copy" lang="en">실제 동작 정보이오니 참고용으로 활용해 주시기 바랍니다.</p>
+      <div class="table-scroll" role="region" aria-labelledby="signal-tree-title" tabindex="0">
+        <table class="download-table">
+          <caption>Signal Tree 버전별 다운로드</caption>
+          <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">v1.2<small>Power Tree</small></th><td>미정</td><td lang="en">Power Tree</td><td>PDF</td><td><span class="download-pending">준비 중</span></td></tr>
+            <tr><th scope="row">v1.2<small>Signal Tree</small></th><td>미정</td><td lang="en">Signal Tree</td><td>PDF</td><td><span class="download-pending">준비 중</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 실제 파일 등록 시 준비 중 표시를 download 속성이 있는 파일 링크로 교체하세요. -->
+    </section>
+    
+  </main>
+  <footer class="home-footer"><a href="index.html">Star-lit7 <b>AI</b></a><span>Design Your Style.</span><a href="index.html#hardware">하드웨어 목록 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
