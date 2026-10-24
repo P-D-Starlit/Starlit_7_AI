@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Starlit CMD Plus 보드 사양과 회로도, Gerber, 펌웨어, BOM 및 Block Diagram 자료 안내.">
+  <title>Starlit CMD Plus | Star-lit7 AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="starlit_cmd.css">
+  <link rel="stylesheet" href="starlit_cmd_plus.css">
+</head>
+<body class="home cmd-page cmd-plus-page">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar home-header">
+    <a class="brand" href="index.html" aria-label="Star-lit7 AI 메인 페이지">
+      <img class="brand-mark" src="res/img24.png" alt="" width="46" height="46">
+      <span>Star-lit7 <b>AI</b><small>Design Your Style</small></span>
+    </a>
+    <nav class="home-nav" aria-label="주요 메뉴">
+      <a href="https://github.com/P-D-Starlit/Starlit_7_AI/releases/tag/v7.0.0" download>설치</a>
+      <a href="support.html">기술지원</a>
+      <a href="index.html#hardware">하드웨어</a>
+    </nav>
+  </header>
+  <main id="main" class="home-main" tabindex="-1">
+    <nav class="breadcrumb" aria-label="현재 위치"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="index.html#hardware">Hardware</a><span aria-hidden="true">/</span><span aria-current="page">Starlit CMD Plus</span></nav>
+    <section class="cmd-hero" aria-labelledby="cmd-title">
+      <div>
+        <p class="home-eyebrow">HARDWARE DOCUMENTATION</p>
+        <h1 id="cmd-title">Starlit <span>CMD Plus</span></h1>
+        <p class="cmd-lead">7 × 7 LED Matrix로 넓어진 표현.</p>
+        <p class="section-description">Starlit CMD Plus는 7 × 7 LED Display와 2개의 버튼을 갖춘 Starlit CMD 확장 보드입니다. ARM Cortex-M7 기반의 216 MHz 코어와 64 KB Code Unit으로 나만의 LED 패턴을 실행하세요.</p>
+        <a class="text-link" href="#resources">문서 및 자료 준비 현황 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="cmd-product"><img src="res/image27.png" alt="Starlit CMD Plus LED Matrix 보드" width="1672" height="941"><figcaption>Starlit CMD Plus<br>7 × 7 LED Display · 2 Buttons</figcaption></figure>
+    </section>
+    <section class="cmd-overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">보드 한눈에 보기</h2>
+      <dl class="cmd-specs">
+        <div><dt>Core</dt><dd>STM32F722RET6</dd></div>
+        <div><dt>CPU / Clock</dt><dd>ARM Cortex-M7 / 216 MHz</dd></div>
+        <div><dt>Display / Input</dt><dd>7 × 7 LED / 2 Buttons</dd></div>
+        <div><dt>Memory</dt><dd>2 MB · Maximum 32 SBCs</dd></div>
+        <div><dt>Code Unit / Variable</dt><dd>64 KB / 32 KB</dd></div>
+        <div><dt>IO</dt><dd>LED Matrix, Switch, Serial (460800 baud)</dd></div>
+      </dl>
+      <p class="support-note">Unpacked에 소개된 CMD Plus 사양 기준입니다. 실제 제작 사양은 기준 사양과 달라질 수 있습니다.</p>
+    </section>
+    <div id="resources" class="cmd-resources">
+      <div class="section-kicker"><span>RESOURCE LIBRARY</span><span>01 — 06</span></div>
+      <h2>문서 &amp; 다운로드</h2>
+      <p class="section-description">Starlit CMD Plus 전용 자료를 준비하고 있습니다. 회로도·Gerber·펌웨어·BOM 및 좌표 파일의 다운로드는 등록 전까지 비활성화됩니다. Block Diagram도 준비 중입니다.</p>
+      <nav class="resource-nav" aria-label="자료 항목">
+        <a href="#spec"><span>01</span> CMD Plus 보드 Spec</a>
+        <a href="#schematic"><span>02</span> Schematic</a>
+        <a href="#gerber"><span>03</span> Gerber</a>
+        <a href="#firmware"><span>04</span> FirmWare</a>
+        <a href="#BOM"><span>05</span> BOM</a>
+        <a href="#diagram"><span>06</span> Block Diagram</a>
+      </nav>
+    </div>
+    <section class="resource-section" id="spec" aria-labelledby="spec-title">
+      <div class="resource-heading"><span class="section-number">01</span><div><p class="home-eyebrow">BOARD SPECIFICATION</p><h2 id="spec-title">CMD Plus 보드 Spec</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <dl class="cmd-specs">
+        <div><dt>Core</dt><dd>STM32F722RET6</dd></div>
+        <div><dt>CPU / Clock</dt><dd>ARM Cortex-M7 / 216 MHz</dd></div>
+        <div><dt>Display / Input</dt><dd>7 × 7 LED / 2 Buttons</dd></div>
+        <div><dt>Memory</dt><dd>2 MB · Maximum 32 SBCs</dd></div>
+        <div><dt>Code Unit / Variable</dt><dd>64 KB / 32 KB</dd></div>
+        <div><dt>IO</dt><dd>LED Matrix, Switch, Serial (460800 baud)</dd></div>
+      </dl>
+      <p class="support-note">사양 출처: <a href="unpack.html#slide-20">Starlit 7 AI Unpacked · Starlit CMD Plus</a>. 프로그램 작성은 <a href="starlit_cmd_guide.html">CMD/CMD Plus 라이브러리 가이드</a>를 참고하세요.</p>
+    </section>
+    <section class="resource-section" id="schematic" aria-labelledby="schematic-title">
+      <div class="resource-heading"><span class="section-number">02</span><div><p class="home-eyebrow">CIRCUIT DESIGN</p><h2 id="schematic-title">Schematic</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description">Starlit CMD Plus 회로도 · 준비 중</p>
+      <div class="table-scroll" role="region" aria-labelledby="schematic-title" tabindex="0"><table class="download-table">
+        <caption>Schematic 버전별 다운로드</caption>
+        <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+        <tbody><tr><th scope="row">미정</th><td>미정</td><td>CMD Plus 회로도 등록 준비 중</td><td>PDF</td><td><button class="download-pending" type="button" disabled aria-label="CMD Plus 회로도 다운로드 준비 중">준비 중</button></td></tr></tbody>
+      </table></div>
+    </section>
+    <section class="resource-section" id="gerber" aria-labelledby="gerber-title">
+      <div class="resource-heading"><span class="section-number">03</span><div><p class="home-eyebrow">PCB FABRICATION</p><h2 id="gerber-title">Gerber</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description">Starlit CMD Plus PCB 제작 자료 · 준비 중</p>
+      <div class="table-scroll" role="region" aria-labelledby="gerber-title" tabindex="0"><table class="download-table">
+        <caption>Gerber 버전별 다운로드</caption>
+        <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+        <tbody><tr><th scope="row">미정</th><td>미정</td><td>CMD Plus Gerber 등록 준비 중</td><td>ZIP</td><td><button class="download-pending" type="button" disabled aria-label="CMD Plus Gerber 다운로드 준비 중">준비 중</button></td></tr></tbody>
+      </table></div>
+    </section>
+    <section class="resource-section" id="firmware" aria-labelledby="firmware-title">
+      <div class="resource-heading"><span class="section-number">04</span><div><p class="home-eyebrow">BOARD SOFTWARE</p><h2 id="firmware-title">FirmWare</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description">Starlit CMD Plus 펌웨어 · 준비 중</p>
+      <div class="table-scroll" role="region" aria-labelledby="firmware-title" tabindex="0"><table class="download-table">
+        <caption>FirmWare 버전별 다운로드</caption>
+        <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+        <tbody><tr><th scope="row">미정<small>STM32F722RET6</small></th><td>미정</td><td>CMD Plus 전용 펌웨어 등록 준비 중</td><td>BIN</td><td><button class="download-pending" type="button" disabled aria-label="CMD Plus 펌웨어 다운로드 준비 중">준비 중</button></td></tr></tbody>
+      </table></div>
+    </section>
+    <section class="resource-section" id="BOM" aria-labelledby="bom-title">
+      <div class="resource-heading"><span class="section-number">05</span><div><p class="home-eyebrow">BILL OF MATERIALS</p><h2 id="bom-title">BOM</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description">Starlit CMD Plus 부품 목록 및 좌표 파일 · 준비 중</p>
+      <div class="table-scroll" role="region" aria-labelledby="bom-title" tabindex="0"><table class="download-table">
+        <caption>BOM / Pick And Place 버전별 다운로드</caption>
+        <thead><tr><th scope="col">버전</th><th scope="col">등록일</th><th scope="col">주요 내용 / 변경 사항</th><th scope="col">파일 형식</th><th scope="col">다운로드</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">미정<small>BOM</small></th><td>미정</td><td>CMD Plus 부품 목록 등록 준비 중</td><td>CSV</td><td><button class="download-pending" type="button" disabled aria-label="CMD Plus BOM 다운로드 준비 중">준비 중</button></td></tr>
+          <tr><th scope="row">미정<small>Pick And Place</small></th><td>미정</td><td>CMD Plus 좌표 파일 등록 준비 중</td><td>CSV</td><td><button class="download-pending" type="button" disabled aria-label="CMD Plus 좌표 파일 다운로드 준비 중">준비 중</button></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <section class="resource-section" id="diagram" aria-labelledby="diagram-title">
+      <div class="resource-heading"><span class="section-number">06</span><div><p class="home-eyebrow">POWER &amp; SIGNAL CONNECTIONS</p><h2 id="diagram-title">Block Diagram</h2></div><a href="#resources" class="back-top" aria-label="자료 목차로 이동">목차 ↑</a></div>
+      <p class="section-description">Starlit CMD Plus Block도 · 준비 중</p>
+      <div class="diagram-pending"><p class="home-eyebrow">BLOCK DIAGRAM</p><strong>준비 중</strong><img src="res/image28.png" alt="Starlit CMD Plus 블록도 준비 중 샘플 이미지" width="1672" height="941" loading="lazy"><p>블록도 샘플 이미지입니다. CMD Plus의 전원 및 신호 구성도는 추후 공개됩니다.</p></div>
+    </section>
+  </main>
+  <footer class="home-footer"><a href="index.html">Star-lit7 <b>AI</b></a><span>Design Your Style.</span><a href="index.html#hardware">하드웨어 목록 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

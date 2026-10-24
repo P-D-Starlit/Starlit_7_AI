@@ -1,0 +1,9 @@
+.cmd-plus-page .cmd-hero h1{font-size:clamp(44px,6vw,76px)}
+.cmd-plus-page .cmd-product figcaption{line-height:1.9}
+.cmd-plus-page .download-pending:disabled{color:var(--muted);background:#111b2d;border-color:#34425b;opacity:1;cursor:not-allowed}
+.cmd-plus-page .support-note a{color:var(--cyan);text-underline-offset:3px}
+.cmd-plus-page .diagram-pending{border:1px dashed #34425b;background:#0c1222;min-height:240px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cmd-plus-page .diagram-pending .home-eyebrow{margin-bottom:16px}
+.cmd-plus-page .diagram-pending strong{font-size:27px;font-weight:500;color:var(--muted)}
+.cmd-plus-page .diagram-pending img{display:block;width:100%;height:auto;margin-top:24px}
+.cmd-plus-page .diagram-pending>p:last-child{font-size:13px;line-height:1.8;color:var(--muted);margin:16px 0 0}
