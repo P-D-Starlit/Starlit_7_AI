@@ -1,0 +1,9 @@
+main:
+    decimal = atoi("123")
+    real = atoff("3.25")
+    hexValue = strtol("FF", 16)
+    distance = labs(-7)
+    PuTTY << f"decimal = {decimal}" << PuTTY.ln
+    PuTTY << f"real = {real:.2f}" << PuTTY.ln
+    PuTTY << f"hex = {hexValue}" << PuTTY.ln
+    PuTTY << f"abs = {distance}" << PuTTY.ln

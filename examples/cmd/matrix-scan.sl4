@@ -1,0 +1,13 @@
+$import(studio)
+$import(matrix)
+
+main:
+    img = img88
+    img.Clear()
+    while 1:
+        for y:0:6:
+            for x:0:4:
+                img.Clear()
+                img.Pixel(x, y, 0x002020)
+                img.PrintM()
+                Delay(100)

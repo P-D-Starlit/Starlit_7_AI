@@ -1,0 +1,7 @@
+$import(math)
+
+main:
+    root = sqrt(9.0)
+    power = pow(2.0, 3.0)
+    PuTTY << f"sqrt = {root:.2f}" << PuTTY.ln
+    PuTTY << f"pow = {power:.2f}" << PuTTY.ln

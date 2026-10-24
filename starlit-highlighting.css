@@ -1,0 +1,17 @@
+/* Token styles are exported by Starlitliter 0.0.56, with no saved overrides.
+   Editor surface matches its HTML export's default dark foreground/background. */
+.guide-main .lesson-body code.starlit-highlight{
+  color:#D4D4D4;
+  background:#1E1E1E;
+  font-weight:normal;
+  font-style:normal;
+}
+.guide-main .lesson-body pre{
+  background:#1E1E1E;
+  color:#D4D4D4;
+  tab-size:4;
+}
+.guide-main .lesson-body pre code.starlit-highlight{
+  font-family:Consolas,monospace;
+  font-size:14px;
+}

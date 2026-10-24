@@ -1,0 +1,4 @@
+main:
+    for i:1:10:
+        dice = rand(1, 6)
+        PuTTY << f"roll {i:02d}: {dice}" << PuTTY.ln

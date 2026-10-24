@@ -1,0 +1,8 @@
+main:
+    message = str
+    strcpy(_message, "Hello, ")
+    strcat(_message, "CMD!")
+    PuTTY << message << PuTTY.ln
+    if strcmp(_message, "Hello, CMD!") == 0:
+        PuTTY << "MATCH" << PuTTY.ln
+    PuTTY << _message + 7 << PuTTY.ln

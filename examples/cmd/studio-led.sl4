@@ -1,0 +1,15 @@
+$import(studio)
+
+main:
+    while 1:
+        LED_Write(3, 64)
+        LED_Write(5, 0)
+        LED_Write(6, 0)
+        Delay(500)
+        LED_Write(3, 0)
+        LED_Write(5, 64)
+        Delay(500)
+        LED_Write(5, 0)
+        LED_Write(6, 64)
+        Delay(500)
+        LED_Write(6, 0)

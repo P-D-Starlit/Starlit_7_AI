@@ -1,0 +1,16 @@
+main:
+    value = 0
+    PuTTY << f"/0value = {value:02d}"
+    while 1:
+        sw = InSwitch()
+        if sw == SWITCH_12:
+            break
+        elif sw == SWITCH_1:
+            value -= 1
+            value %%= 100
+            PuTTY << f"/0value = {value:02d}"
+        elif sw == SWITCH_2:
+            value += 1
+            value %%= 100
+            PuTTY << f"/0value = {value:02d}"
+    PuTTY << PuTTY.ln << "Counter stopped." << PuTTY.ln

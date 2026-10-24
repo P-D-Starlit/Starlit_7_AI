@@ -1,0 +1,9 @@
+$import(matrix)
+
+main:
+    img = img88
+    img.Clear()
+    img.Color(0, 4, 0, 6, 0x000020, 0)
+    img.Color(1, 3, 2, 4, 0x002000, 0)
+    img.Pixel(2, 3, 0x200000)
+    img.PrintM()

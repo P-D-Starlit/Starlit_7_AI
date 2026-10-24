@@ -1,0 +1,10 @@
+$import(studio)
+
+main:
+    count = 0
+    last = Tick()
+    while 1:
+        if Tick() - last >= 1000:
+            count += 1
+            last += 1000
+            PuTTY << f"count = {count}" << PuTTY.ln

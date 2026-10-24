@@ -1,0 +1,10 @@
+$import(matrix)
+
+main:
+    img = img88
+    img.Clear()
+    for x:0:4:
+        for y:0:6:
+            img.data[1, y, x] = x * 40
+            img.data[2, y, x] = y * 30
+    img.PrintM()

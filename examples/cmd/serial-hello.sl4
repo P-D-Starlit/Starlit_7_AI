@@ -1,0 +1,5 @@
+main:
+    PuTTY << "Hello, CMD!" << PuTTY.ln
+    PuTTY << "/rRED /gGREEN /bBLUE /wWHITE" << PuTTY.ln
+    count = 7
+    PuTTY << f"count = {count:02d}" << PuTTY.ln

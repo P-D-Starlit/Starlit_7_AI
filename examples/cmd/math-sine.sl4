@@ -1,0 +1,8 @@
+$import(math)
+
+main:
+    for angle:0:30:90:
+        degree = 0.0
+        degree = angle
+        value = sin(rad(degree))
+        PuTTY << f"sin({angle:02d}) = {value:.3f}" << PuTTY.ln
