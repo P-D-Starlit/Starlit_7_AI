@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Stellit Simulator 1.0.0의 설치, CMD 미리보기, 입력 타임라인, 시나리오 저장과 PC 빌드·실행 가이드.">
+  <title>Stellit Simulator 가이드 | Star-lit7 AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="support.css">
+  <link rel="stylesheet" href="vscode_extensions.css">
+  <link rel="stylesheet" href="starlit-highlighting.css">
+  <script src="starlit_guide.js" defer></script>
+</head>
+<body class="home support-page">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar home-header">
+    <a class="brand" href="index.html" aria-label="Star-lit7 AI 메인 페이지"><img class="brand-mark" src="res/img24.png" alt="" width="46" height="46"><span>Star-lit7 <b>AI</b><small>Design Your Style</small></span></a>
+    <nav class="home-nav" aria-label="주요 메뉴"><a href="https://github.com/P-D-Starlit/Starlit_7_AI/releases/tag/v7.0.0">설치</a><a href="support.html">기술지원</a><a href="index.html#hardware">하드웨어</a></nav>
+  </header>
+  <main id="main" class="home-main guide-main" tabindex="-1">
+    <nav class="support-breadcrumb" aria-label="현재 위치"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="support.html">기술지원</a><span aria-hidden="true">/</span><span aria-current="page">Stellit Simulator</span></nav>
+    <section class="guide-intro" aria-labelledby="guide-title"><p class="home-eyebrow">FAN MADE · STELLIT 1.0.0</p><h1 id="guide-title">Stellit Simulator 가이드</h1><p class="section-description">보드에 올리기 전에 PC에서 LED 패턴과 입력 반응을 확인하세요. 타임라인에 버튼과 텍스트 입력을 배치하고, 실행 결과를 프레임 단위로 살펴볼 수 있습니다.</p></section>
+    <p class="guide-source">기준 패키지: <strong>stellit-win32-x64-1.0.0.vsix</strong> · 첫 릴리스 2026-10-23<br>이 프로그램은 별도의 VSIX 파일로 제공됩니다. Starlit 패키지를 설치하더라도 이 기능을 사용하시려면 VSIX 파일을 별도로 설치하시기 바랍니다.(11월 중 오픈 예정)</p>
+    <nav class="guide-topics" aria-label="Stellit 사용 가이드 항목">
+      <a id="topic-features" class="topic-link" href="#features">주요 기능</a>
+      <a id="topic-quickstart" class="topic-link" href="#quickstart">설치·첫 실행</a>
+      <a id="topic-timeline" class="topic-link" href="#timeline">타임라인·입력</a>
+      <a id="topic-scenarios" class="topic-link" href="#scenarios">시나리오 저장</a>
+      <a id="topic-build" class="topic-link" href="#build">빌드·설정</a>
+      <a id="topic-help" class="topic-link" href="#help">단축키·문제 해결</a>
+    </nav>
+    <div class="guide-content">
+      <section id="features" class="guide-panel" aria-labelledby="heading-features">
+        <p class="home-eyebrow">GUIDE 01</p><h2 id="heading-features">주요 기능</h2><p class="lesson-subtitle">Starlit 코드를 PC에서 실행하고 재현하기</p>
+        <div class="lesson-body">
+          <p>Stellit은 Starlit 문법을 LLVM 기반으로 다시 구현한 툴체인과 VSCode 확장입니다. 패키지에는 컴파일러 <samp>stellitc</samp>, 언어 서버 <samp>stellit-lsp</samp>, 런타임이 포함됩니다. 이 가이드는 확장 이름 Stellit을 시뮬레이터 용도로 사용하는 방법을 설명합니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="주요 기능" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">기능</th><th scope="col">확인할 수 있는 내용</th></tr></thead><tbody>
+            <tr><th scope="row">장치 미리보기</th><td>프로필에 따른 LED·LED Matrix·OLED·버튼·직렬 출력</td></tr>
+            <tr><th scope="row">타임라인</th><td>가상 시계로 실행하고 프레임별 상태 탐색. 같은 입력과 고정 시드는 같은 실행 결과를 재현</td></tr>
+            <tr><th scope="row">입력 스티커</th><td>버튼 누름과 직렬 텍스트를 원하는 시각에 배치하고 다시 실행</td></tr>
+            <tr><th scope="row">언어 지원</th><td>문법 강조, 스니펫, 진단, 자동완성, 시그니처 도움말, 호버, 정의·참조 탐색, 문서 개요</td></tr>
+            <tr><th scope="row">빌드·실행</th><td>PC 실행 파일 생성. GUI 창 또는 터미널에서 실행</td></tr>
+            <tr><th scope="row">프로젝트 설정</th><td>상태 표시줄에서 장치·플랫폼·아키텍처·HAL·최적화를 고르고 stellit.json에 저장</td></tr>
+          </tbody></table></div>
+          <h3>지원 장치</h3><div class="guide-table-scroll" role="region" aria-label="장치별 화면 구성" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">Device</th><th scope="col">보드 / 화면</th><th scope="col">입력</th></tr></thead><tbody>
+            <tr><th scope="row">cmd</th><td>Starlit CMD · 5×7 Matrix, LED, 직렬. OLED 없음</td><td>버튼 2개</td></tr>
+            <tr><th scope="row">cmdplus</th><td>Starlit CMD Plus · 7×7 Matrix, LED, 직렬. OLED 없음</td><td>버튼 2개</td></tr>
+            <tr><th scope="row">R</th><td>Starlit R · 8×8 Matrix(Shield), LED, 직렬. OLED</td><td>버튼 2개</td></tr>
+          </tbody></table></div>
+          <aside class="guide-callout">기본 Device는 Starlit CMD입니다. CMD Plus의 7×7 화면을 보려면 <strong>CMD Plus를 직접 선택</strong>하세요. 1.0.0에는 실제 보드 업로드와 중단점 디버거가 없습니다. PC에서 확인한 코드를 실물에 올릴 때는 <a href="vscode_extensions.html#starstar">StarStarXtension의 업로드 절차</a>를 사용합니다.</aside>
+        </div><p class="lesson-note">근거: VSIX의 readme.md, changelog.md, boards/cmd.json·cmdplus.json과 장치 프로필.</p>
+      </section>
+      <section id="quickstart" class="guide-panel" aria-labelledby="heading-quickstart">
+        <p class="home-eyebrow">GUIDE 02</p><h2 id="heading-quickstart">설치·첫 실행</h2><p class="lesson-subtitle">CMD 5×7 예제를 타임라인으로 보기</p>
+        <div class="lesson-body">
+          <h3>1. 확장 설치</h3><ol><li>Windows x64의 Windows 10 1903 이상과 VSCode 1.90 이상을 준비합니다. 제공된 파일은 Windows x64용 패키지입니다.</li><li>VSCode에서 Ctrl + Shift + P → <samp>Extensions: Install from VSIX...</samp>를 실행합니다.</li><li>FanMades의 <samp>stellit-win32-x64-1.0.0.vsix</samp>를 선택하고 필요하면 창을 다시 로드합니다.</li><li>컴파일러·언어 서버·런타임이 들어 있어 Stellit용 별도 툴체인 설치는 필요하지 않습니다. Starlit.exe를 연결하는 F4 설정과는 별개입니다.</li></ol>
+          <h3>2. 소스와 장치 선택</h3><ol><li>프로젝트 폴더를 열고 아래 .sl4 예제를 저장해 엽니다.</li><li>오른쪽 아래 언어 모드에서 <samp>Stellit</samp> 또는 <samp>Stellit SL4</samp>를 선택합니다. Core 소스 .slc/.shc는 Stellit Core를 사용합니다.</li><li>왼쪽 상태 표시줄의 Device를 클릭하거나 <samp>Stellit: Select Device</samp>를 실행해 <strong>cmd</strong>를 고릅니다.</li><li>적용 범위는 이 소스만 또는 이 폴더 전체 중에서 선택합니다. 결과는 stellit.json에 저장됩니다.</li></ol>
+          <p><a class="example-download" href="examples/cmd/matrix-scan.sl4" download>5×7 점 이동 예제 · .sl4 다운로드 ↓</a></p>
+          <p>아래 예제는 왼쪽 아래에서 시작해 35개 픽셀을 0.1초 간격으로 순회합니다. x=0~4, y=0~6만 사용하며, 매 프레임 이전 점을 지우고 새 위치를 출력합니다.</p>
+          <pre><code class="starlit-highlight"><span style="color:#FFFF00;font-weight:bold;font-style:normal">$import</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#AAFF55;font-weight:normal;font-style:normal">studio</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+<span style="color:#FFFF00;font-weight:bold;font-style:normal">$import</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#AAFF55;font-weight:normal;font-style:normal">matrix</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+
+<span style="color:#FF0000;font-weight:normal;font-style:normal">main</span>:
+    <span style="color:#C0E0FF;font-weight:normal;font-style:normal">img</span> = <span style="color:#AA55FF;font-weight:normal;font-style:normal">img88</span>
+    <span style="color:#C0E0FF;font-weight:normal;font-style:normal">img</span>.<span style="color:#0088FF;font-weight:normal;font-style:normal">Clear</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+    <span style="color:#FFC000;font-weight:bold;font-style:normal">while</span> <span style="color:#FFE0C0;font-weight:normal;font-style:normal">1</span>:
+        <span style="color:#FFC000;font-weight:bold;font-style:normal">for</span> <span style="color:#C0E0FF;font-weight:normal;font-style:normal">y</span>:<span style="color:#FFE0C0;font-weight:normal;font-style:normal">0</span>:<span style="color:#FFE0C0;font-weight:normal;font-style:normal">6</span>:
+            <span style="color:#FFC000;font-weight:bold;font-style:normal">for</span> <span style="color:#C0E0FF;font-weight:normal;font-style:normal">x</span>:<span style="color:#FFE0C0;font-weight:normal;font-style:normal">0</span>:<span style="color:#FFE0C0;font-weight:normal;font-style:normal">4</span>:
+                <span style="color:#C0E0FF;font-weight:normal;font-style:normal">img</span>.<span style="color:#0088FF;font-weight:normal;font-style:normal">Clear</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+                <span style="color:#C0E0FF;font-weight:normal;font-style:normal">img</span>.<span style="color:#0088FF;font-weight:normal;font-style:normal">Pixel</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#C0E0FF;font-weight:normal;font-style:normal">x</span>, <span style="color:#C0E0FF;font-weight:normal;font-style:normal">y</span>, <span style="color:#FFE0C0;font-weight:normal;font-style:normal">0x002020</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+                <span style="color:#C0E0FF;font-weight:normal;font-style:normal">img</span>.<span style="color:#0088FF;font-weight:normal;font-style:normal">PrintM</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span>
+                <span style="color:#FFC000;font-weight:normal;font-style:normal">Delay</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">(</span><span style="color:#FFE0C0;font-weight:normal;font-style:normal">100</span><span style="color:#FFE0FF;font-weight:normal;font-style:normal">)</span></code></pre>
+          <h3>3. 미리보기 열기</h3><ol><li>편집기 제목 줄의 <samp>Open Timeline</samp> 또는 명령 팔레트의 <samp>Stellit: Open Timeline</samp>을 선택합니다.</li><li>편집기 옆 Timeline 패널이 열리면서 자동 컴파일·실행합니다. 장치 선택이 기본이면 상태 표시줄의 cmd를 따릅니다.</li><li>재생 버튼이나 Space로 재생하고, 좌우 화살표로 프레임을 이동합니다. 0.5초 부근에는 다음 행으로 올라간 점을 확인할 수 있습니다.</li><li>소스를 수정해 저장하면 다시 컴파일하며 0 프레임으로 돌아갑니다.</li></ol>
+          <aside class="guide-callout">Starlitliter와 StarStarXtension도 .sl4를 사용합니다. 확장을 함께 설치했다면 문서의 언어 모드를 확인하고, 처음에는 단축키 대신 <strong>Stellit: Open Timeline / Build and Run</strong> 명령을 직접 선택하세요. Stellit 실행은 PC 프로그램 실행이며, StarStarXtension의 F5 업로드와 동작이 다릅니다.</aside>
+        </div><p class="lesson-note">근거: readme.md의 요구 사항·빌드·타임라인 안내와 package.json. 위 예제는 제공된 Stellit 컴파일러로 빌드 및 headless 시나리오 실행을 확인했습니다.</p>
+      </section>
+      <section id="timeline" class="guide-panel" aria-labelledby="heading-timeline">
+        <p class="home-eyebrow">GUIDE 03</p><h2 id="heading-timeline">타임라인·입력</h2><p class="lesson-subtitle">특정 시각에 버튼과 텍스트를 넣어 반응 확인하기</p>
+        <div class="lesson-body">
+          <h3>길이·FPS·장치</h3><p>새 시나리오는 기본 <strong>10초·60 FPS</strong>, 총 600프레임입니다. 패널 위쪽에서 길이와 FPS를 조절합니다. 실행당 프레임 상한은 기본 7200이며, 넘으면 조정 사실을 안내합니다.</p>
+          <p>타임라인의 장치를 기본 이외의 값으로 바꾸면 시나리오의 미리보기 장치만 바뀝니다. 일반 Build / Build and Run의 장치는 상태 표시줄과 stellit.json으로 정합니다. 타임라인은 PC용 headless HAL과 최적화 -O0를 사용합니다.</p>
+          <h3>입력 스티커 배치</h3><ol><li>아래 팔레트의 장치 키 또는 text를 타임라인 띠로 끌어 놓습니다. 보통 프레임 시작에 맞추며 Alt를 누르고 놓으면 ms 단위로 배치합니다.</li><li>팔레트를 두 번 누르거나 재생 손잡이의 ＋로 현재 위치에 넣을 수도 있습니다. 띠를 오른쪽 클릭하면 입력 종류를 선택합니다.</li><li>스티커 왼쪽은 종류, 오른쪽은 시각·누르는 시간·텍스트를 수정합니다. 초·ms·프레임 단위를 사용할 수 있습니다.</li><li>스티커를 끌어 위치를 바꾸고, 오른쪽 끝을 끌어 버튼 누름 시간을 바꿉니다. Del 또는 ×로 삭제합니다.</li><li>입력·길이·FPS를 바꾸면 처음부터 다시 실행하지만 재생 위치는 유지합니다. 장치에서 지원하지 않는 키는 빨간 점선으로 표시하고 실행에서 제외합니다.</li></ol>
+          <h3>버튼 입력을 시험하려면</h3><p><a href="examples/cmd/button-counter.sl4" download>버튼 카운터 예제</a>를 새 소스로 열고 Device=cmd를 선택합니다. 타임라인의 1번·2번 버튼 입력을 서로 다른 시각에 배치하면 직렬 출력의 value 변화를 확인할 수 있습니다. 두 버튼 동시 입력은 예제의 종료 조건입니다. 점 이동 예제는 버튼을 읽지 않으므로 입력을 넣어도 경로가 바뀌지 않습니다.</p>
+          <h3>직렬 입력과 오류 위치</h3><p>text 스티커에 넣은 내용은 그 시각의 직렬 입력으로 전달됩니다. 프로그램에서 입력을 읽는 코드가 있어야 반응합니다. 런타임 오류는 탐색 막대의 빨간 표시로, 컴파일 오류는 VSCode 문제 창에 표시합니다.</p>
+          <h3>난수 결과 재현</h3><p>기본 난수 시드는 고정값 1입니다. 같은 코드·입력·시드로 다시 실행하면 같은 프레임을 얻습니다. 설정의 seedMode를 random으로 바꾸면 실행마다 달라지고, <samp>이 시드로 고정</samp>으로 현재 시드를 시나리오에 저장할 수 있습니다. 시드는 활성 시나리오 → defaults → VSCode 설정 순으로 우선합니다.</p>
+        </div><p class="lesson-note">근거: readme.md의 타임라인·시드 안내, package.json의 preview 설정.</p>
+      </section>
+      <section id="scenarios" class="guide-panel" aria-labelledby="heading-scenarios">
+        <p class="home-eyebrow">GUIDE 04</p><h2 id="heading-scenarios">시나리오 저장</h2><p class="lesson-subtitle">코드와 시험 입력을 함께 보관하기</p>
+        <div class="lesson-body">
+          <p>기본 저장 위치는 소스 옆 <samp>&lt;소스 파일명&gt;.scenarios.json</samp>입니다. 예를 들어 matrix-scan.sl4에는 matrix-scan.sl4.scenarios.json이 대응합니다. stellit.scenario.storage를 workspace로 바꾸면 VSCode 작업 영역 저장소를 사용합니다.</p>
+          <ol><li>타임라인을 열기만 하면 파일이 생기지 않습니다. 첫 편집에서 시나리오 문서가 만들어집니다.</li><li>패널에 ●와 저장 버튼이 보이면 저장하지 않은 변경이 있다는 뜻입니다. 패널에서 Ctrl+S 또는 Stellit: Save Timeline Scenario를 실행합니다.</li><li>Ctrl+Z로 되돌리고 Ctrl+Shift+Z 또는 Ctrl+Y로 다시 적용합니다.</li><li>Stellit: Open Timeline Scenario as JSON을 실행하면 같은 문서를 JSON으로 편집합니다. 양쪽 변경이 동기화되며 JSON이 잘못되면 마지막 정상 상태를 유지합니다.</li></ol>
+          <p>패널을 저장하지 않고 닫으면 문서가 배경 JSON 탭으로 남고 저장·버리기·열기 알림이 표시됩니다. 다시 열면 편집 내용이 유지됩니다. 한 파일에 여러 시나리오를 담을 수 있지만 1.0.0의 타임라인은 active 항목만 편집하며, 시나리오 추가·선택 화면은 제공하지 않습니다.</p>
+          <h3>프로젝트와 시나리오의 차이</h3><div class="guide-table-scroll" role="region" aria-label="설정 파일의 역할" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">파일 / 설정</th><th scope="col">보관하는 내용</th></tr></thead><tbody>
+            <tr><th scope="row">.sl4 / .slc</th><td>프로그램 소스</td></tr><tr><th scope="row">stellit.json</th><td>빌드 장치·플랫폼·HAL·최적화와 소스별 옵션</td></tr><tr><th scope="row">.scenarios.json</th><td>입력 시각·버튼 유지 시간·텍스트·길이·FPS·시드·미리보기 장치</td></tr><tr><th scope="row">stellit.scenario.storage</th><td>시나리오 저장 위치 선택. stellit.json으로 정하는 항목은 아님</td></tr>
+          </tbody></table></div>
+        </div><p class="lesson-note">근거: readme.md와 stellit-scenarios.schema.json. 현재 시나리오 형식은 version 2입니다.</p>
+      </section>
+      <section id="build" class="guide-panel" aria-labelledby="heading-build">
+        <p class="home-eyebrow">GUIDE 05</p><h2 id="heading-build">빌드·설정</h2><p class="lesson-subtitle">타임라인 밖에서도 PC 프로그램으로 실행하기</p>
+        <div class="lesson-body">
+          <h3>Build와 Build and Run</h3><p>편집기 제목 줄, main 위 CodeLens 또는 명령 팔레트를 사용합니다. <samp>Stellit: Build</samp>는 빌드, <samp>Stellit: Build and Run</samp>과 F5는 빌드 후 실행입니다. Ctrl+Shift+B는 VSCode의 빌드 작업 선택을 사용합니다.</p>
+          <p>결과는 소스와 같은 폴더에 소스 이름의 실행 파일로 생깁니다. Windows에서는 .exe이며, 명령줄과 전체 컴파일러 출력은 <samp>Stellit Build</samp> 출력 창에 남습니다. 이 빌드·실행은 VSCode 작업으로 진행되며 디버그 세션을 열지 않습니다.</p>
+          <h3>상태 표시줄의 다섯 설정</h3><div class="guide-table-scroll" role="region" aria-label="빌드 설정 항목" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">설정</th><th scope="col">사용법 / 기본값</th></tr></thead><tbody>
+            <tr><th scope="row">Device</th><td>highend / cmd / cmdplus. 기본 highend</td></tr><tr><th scope="row">Platform</th><td>패키지에서 링크 가능한 OS. 제공된 Windows 패키지는 windows</td></tr><tr><th scope="row">Architecture</th><td>선택한 플랫폼에서 가능한 아키텍처. 제공 패키지는 x86_64</td></tr><tr><th scope="row">HAL</th><td>출력·입력 방식. 기본 gui</td></tr><tr><th scope="row">Optimization</th><td>debug(-O0 -g) 또는 release(-O2 -g0). 기본 debug</td></tr>
+          </tbody></table></div>
+          <p>항목을 누르고 적용 범위를 고르면 stellit.json에 저장합니다. 툴팁에는 실제 명령줄과 값의 출처를 표시합니다. 소스별 설정은 폴더 기본값보다 우선합니다. 여러 stellit.json의 같은 값이 겹치면 작업 영역 상위에 가까운 파일이 우선하고 경고로 안내합니다.</p>
+          <h3>HAL 고르기</h3><div class="guide-table-scroll" role="region" aria-label="HAL별 실행 방식" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">HAL</th><th scope="col">화면과 용도</th></tr></thead><tbody>
+            <tr><th scope="row">gui</th><td>별도 창에 장치 화면. 키보드·마우스로 입력</td></tr><tr><th scope="row">tty</th><td>같은 터미널에 장치 그림과 직렬 창</td></tr><tr><th scope="row">console</th><td>직렬 입력·출력을 표준 입출력으로 연결</td></tr><tr><th scope="row">headless</th><td>가상 시계·입력 시나리오·이벤트·프레임 스트림. 타임라인에 사용</td></tr><tr><th scope="row">publish</th><td>별도 뷰어에 화면 전송하는 고급 실행 방식</td></tr>
+          </tbody></table></div>
+          <p>GUI에서는 장치의 화면 버튼을 누르거나 키보드를 사용할 수 있습니다. CMD의 두 버튼은 1·2에 대응합니다. Tab은 직렬 입력 모드, q(버튼 모드)·Esc·창 닫기는 종료에 사용합니다. 타임라인 패널의 Space·화살표는 프레임 탐색용이며 별도 GUI 창의 입력과 구분하세요.</p>
+          <h3>언어 지원과 설정</h3><p>SL4 문법 .sl4/.sh4는 stellit, Core 문법 .slc/.shc는 stellit-core 언어 모드입니다. main, if, for, while, import 등의 스니펫과 언어 서버의 진단·정의·참조 탐색을 제공합니다. .sl7/.st7 AI 생성과 .stm 실행은 이 확장의 대상이 아닙니다.</p>
+          <p>언어 서버는 기본 활성화됩니다. 라이브러리 진단은 기본으로 오류만 표시하며 warning·note 또는 CW 그룹별로 켤 수 있습니다. 편집기에서 숨긴 항목도 Stellit Build에는 전체 출력이 남습니다.</p>
+        </div><p class="lesson-note">근거: readme.md, package.json의 명령·설정·작업 정의와 changelog.md.</p>
+      </section>
+      <section id="help" class="guide-panel" aria-labelledby="heading-help">
+        <p class="home-eyebrow">GUIDE 06</p><h2 id="heading-help">단축키·문제 해결</h2><p class="lesson-subtitle">처음 사용할 때 확인할 항목</p>
+        <div class="lesson-body">
+          <div class="guide-table-scroll" role="region" aria-label="주요 단축키" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">단축키</th><th scope="col">동작 / 적용 위치</th></tr></thead><tbody>
+            <tr><th scope="row">F5</th><td>Stellit 편집기·타임라인에서 빌드하고 실행. 디버깅 중이 아닐 때</td></tr><tr><th scope="row">Ctrl+Shift+B</th><td>VSCode 빌드 작업</td></tr><tr><th scope="row">Space</th><td>타임라인 재생·멈춤</td></tr><tr><th scope="row">← / → · Home / End</th><td>타임라인 이전·다음 프레임 / 처음·끝</td></tr><tr><th scope="row">Ctrl+S</th><td>타임라인 시나리오 저장</td></tr><tr><th scope="row">Ctrl+Z · Ctrl+Shift+Z / Ctrl+Y</th><td>타임라인 편집 되돌리기 / 다시 하기</td></tr><tr><th scope="row">Del</th><td>선택한 입력 스티커 삭제</td></tr>
+          </tbody></table></div>
+          <div class="guide-table-scroll" role="region" aria-label="증상별 해결 방법" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">증상</th><th scope="col">확인할 내용</th></tr></thead><tbody>
+            <tr><th scope="row">Open Timeline이 안 보임</th><td>.sl4 또는 .slc 소스를 활성화. 언어 모드와 VSIX 활성 상태 확인</td></tr><tr><th scope="row">CMD 화면이 아님</th><td>상태 표시줄 Device=cmd와 타임라인 장치 선택 확인. 기본 highend와 구분</td></tr><tr><th scope="row">F5가 보드 업로드를 실행함</th><td>StarStarXtension과 단축키·파일 연결이 겹치는지 확인. Stellit 명령을 직접 선택</td></tr><tr><th scope="row">버튼이 반응하지 않음</th><td>해당 장치의 키인지, 프로그램이 InSwitch 등을 호출하는지 확인. 빨간 점선 스티커는 실행에서 제외</td></tr><tr><th scope="row">길이·FPS가 줄어듦</th><td>길이×FPS가 maxFrames(기본 7200)를 넘는지 확인</td></tr><tr><th scope="row">컴파일·실행 오류</th><td>문제 창과 Stellit Build 확인. 출력 위치·명령줄·CW 진단 확인</td></tr><tr><th scope="row">IntelliSense가 안 됨</th><td>언어 모드와 stellit.languageServer.enabled 확인. Stellit Language Server 출력 확인</td></tr><tr><th scope="row">다른 툴체인과 버전 경고</th><td>compilerPath·languageServer.path의 지정 여부와 버전 일치 확인. 비워 두면 번들 우선</td></tr>
+          </tbody></table></div>
+          <h3>1.0.0에서 알아둘 범위</h3><ul><li>실제 보드 업로드와 중단점 디버거는 제공하지 않습니다.</li><li>제공된 win32-x64 VSIX는 Windows x86_64 실행 파일만 링크합니다. 원격 SSH에서는 작업 영역 쪽에서 실행되므로 원격 OS에 맞는 패키지가 필요합니다.</li><li>타임라인은 실행이 30초 안에 끝나지 않으면 중단하며, call 파일 저장소는 실행마다 빈 상태에서 시작합니다.</li><li>활성 시나리오 하나를 편집합니다. mini·sterm 장치 등 예정 프로필은 지원 대상으로 안내하지 않습니다.</li><li>Starlit과 다른 동작은 호환 진단(CW 번호)으로 알려 줍니다. 실물 보드 배포 전에는 해당 진단과 실제 동작도 확인하세요.</li></ul>
+          <h3>참조 자료</h3><p>FanMades/stellit-win32-x64-1.0.0.vsix 내부의 extension/readme.md, changelog.md, package.json, 장치·빌드 프로필 및 시나리오 스키마를 기준으로 정리했습니다. 이 페이지는 확장을 설치하거나 사용자 설정을 변경하지 않습니다.</p>
+          <p><a href="vscode_extensions.html">기존 세 확장 사용 가이드</a> · <a href="starlit_cmd_guide.html">CMD/CMD Plus 라이브러리 예제</a> · <a href="starlit_guide.html">Starlit 언어 가이드</a></p>
+        </div><p class="lesson-note">근거: VSIX 1.0.0의 readme.md·changelog.md와 package.json.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="home-footer"><a href="index.html">Star-lit7 <b>AI</b></a><span>Design Your Style.</span><a href="support.html">기술지원 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
