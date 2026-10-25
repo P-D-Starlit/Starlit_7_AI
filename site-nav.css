@@ -1,0 +1,10 @@
+/* Shared header navigation for every HTML page, including Unpacked. */
+.topbar .home-nav{flex-shrink:0;white-space:nowrap}
+.topbar .home-nav a[aria-current=page]{color:var(--cyan)}
+.header-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px 24px;min-width:0}
+.unpack-header{height:auto;min-height:88px;gap:20px;padding-top:12px;padding-bottom:12px}
+.unpack-header .home-nav{display:flex;align-items:center;gap:24px}
+.unpack-header .home-nav a{color:var(--muted);font-size:13px;text-decoration:none;padding:8px 0}
+.unpack-header .home-nav a:hover{color:var(--cyan)}
+@media(max-width:1050px){.unpack-header{align-items:flex-start}.unpack-header .header-actions{flex:1}.unpack-header .brand{margin-top:8px}.unpack-header .toolbar{justify-content:flex-end;flex-wrap:wrap}}
+@media(max-width:600px){.topbar.home-header,.topbar.unpack-header{height:auto;min-height:80px;flex-wrap:wrap;gap:10px;padding-top:15px;padding-bottom:12px}.topbar.home-header>.home-nav{width:100%;justify-content:flex-end;gap:clamp(16px,5vw,28px)}.topbar .home-nav a{padding:7px 0;font-size:12px}.unpack-header .header-actions{flex-basis:100%;gap:8px;width:100%}.unpack-header .home-nav{width:100%;justify-content:flex-end;gap:clamp(16px,5vw,28px)}.unpack-header .brand{margin-top:0}.unpack-header .toolbar{width:100%}body.reading .unpack-header~#deck .slide-section{scroll-margin-top:200px}}

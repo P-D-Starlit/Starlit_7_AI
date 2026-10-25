@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="SMDViewer의 Windows 문서 열기·PDF·HTML 저장, SMD Preview 0.1.1의 VSCode 미리보기, Android 사용법과 SMD 색상 규칙.">
+  <title>SMD Viewer 사용 가이드 | Star-lit7 AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="support.css">
+  <link rel="stylesheet" href="vscode_extensions.css">
+  <link rel="stylesheet" href="site-nav.css">
+  <script src="starlit_guide.js" defer></script>
+</head>
+<body class="home support-page">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar home-header">
+    <a class="brand" href="index.html" aria-label="Star-lit7 AI 메인 페이지"><img class="brand-mark" src="res/img24.png" alt="" width="46" height="46"><span>Star-lit7 <b>AI</b><small>Design Your Style</small></span></a>
+    <nav class="home-nav" aria-label="주요 메뉴"><a href="https://github.com/P-D-Starlit/Starlit_7_AI/releases/tag/v7.0.0">설치</a><a href="support.html">기술지원</a><a href="index.html#hardware">하드웨어</a><a href="board.html">게시판</a></nav>
+  </header>
+  <main id="main" class="home-main guide-main" tabindex="-1">
+    <nav class="support-breadcrumb" aria-label="현재 위치"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="support.html">기술지원</a><span aria-hidden="true">/</span><span aria-current="page">SMD Viewer 사용 가이드</span></nav>
+    <section class="guide-intro" aria-labelledby="guide-title"><p class="home-eyebrow">STARLIT MARKDOWN VIEWER</p><h1 id="guide-title">SMD Viewer 사용 가이드</h1><p class="section-description">Markdown 문서를 읽고, Starlit 색상과 코드 강조가 들어간 .smd 문서를 확인하세요. Windows 뷰어·VSCode 미리보기·Android 앱의 사용 방법을 정리했습니다.</p></section>
+    <p class="guide-source">기준 빌드: <strong>SMDViewer.exe · SMD Preview 0.1.1 · Android 1.0.0</strong><br>Starlit7_Book/SMDViewer의 설명서·구현과 빌드된 EXE, VSIX, APK를 기준으로 작성했습니다.</p>
+    <section class="guide-intro" aria-labelledby="guide-title"><p class="home-eyebrow">DOWNLOAD LINK</p><h2 id="guide-title">다운로드 링크</h2><p class="section-description"><a href="programs/smd-preview-0.1.1.vsix">VSCode 확장(0.1.1)</a></p></section>
+    <nav class="guide-topics" aria-label="SMD Viewer 가이드 항목">
+      <a id="topic-overview" class="topic-link" href="#overview">기능·파일 형식</a>
+      <a id="topic-windows" class="topic-link" href="#windows">Windows 뷰어</a>
+      <a id="topic-vscode" class="topic-link" href="#vscode">VSCode 미리보기</a>
+      <a id="topic-smd" class="topic-link" href="#smd">SMD 작성 규칙</a>
+      <a id="topic-android" class="topic-link" href="#android">Android</a>
+      <a id="topic-help" class="topic-link" href="#help">예제·문제 해결</a>
+    </nav>
+    <div class="guide-content">
+      <section id="overview" class="guide-panel" aria-labelledby="heading-overview">
+        <p class="home-eyebrow">GUIDE 01</p><h2 id="heading-overview">기능·파일 형식</h2><p class="lesson-subtitle">일반 Markdown과 Starlit Markdown 읽기</p>
+        <div class="lesson-body">
+          <p>SMDViewer는 읽기 전용 Markdown / Starlit Markdown 뷰어입니다. 제목·목록·표·링크·이미지·코드 블록을 표시하고, .smd 문서에서는 Starlit 글자색과 배경색도 해석합니다. 원본 편집은 VSCode 등 편집기에서 진행합니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="파일 형식별 표시" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">형식</th><th scope="col">표시 방식</th></tr></thead><tbody><tr><th scope="row">.md</th><td>일반 Markdown. 본문의 /r, $dr 같은 색상 기호를 그대로 표시</td></tr><tr><th scope="row">.smd</th><td>Markdown + Starlit 색상·문서 기본색·코드 강조. 색상 기호 대신 적용 결과 표시</td></tr></tbody></table></div>
+          <div class="guide-table-scroll" role="region" aria-label="제품별 기능" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">제품 / 빌드 파일</th><th scope="col">주요 용도</th><th scope="col">환경</th></tr></thead><tbody>
+            <tr><th scope="row">Windows · SMDViewer.exe</th><td>문서 읽기, 검색, 확대·축소, 인쇄, A4 PDF·HTML 저장</td><td>Windows 10/11 x64, .NET Framework 4.7.2 이상, WebView2 Runtime</td></tr>
+            <tr><th scope="row">VSCode · smd-preview-0.1.1.vsix</th><td>.smd 편집 강조, 저장 전 실시간 미리보기, 원본 스크롤 동기화</td><td>VSCode 1.85 이상. 별도 SMDViewer.exe·WebView2 설치 불필요</td></tr>
+            <tr><th scope="row">Android · SMDViewer-android-1.0.0.apk</th><td>문서 열기·공유 수신, .md/.smd 미리보기, 두 손가락 확대</td><td>Android 8.0 이상, 최신 Android System WebView 또는 Chrome</td></tr>
+          </tbody></table></div>
+          <p>세 제품은 같은 렌더러를 공유합니다. 인쇄·PDF·HTML 저장은 Windows 앱의 기능이며 VSCode 확장과 Android 앱에는 포함되지 않습니다.</p>
+        </div><p class="lesson-note">근거: readme.md, vscode-smd-preview/README.md·package.json, apk/readme.md.</p>
+      </section>
+      <section id="windows" class="guide-panel" aria-labelledby="heading-windows">
+        <p class="home-eyebrow">GUIDE 02</p><h2 id="heading-windows">Windows 뷰어</h2><p class="lesson-subtitle">문서 열기부터 PDF·HTML로 보관하기까지</p>
+        <div class="lesson-body">
+          <h3>문서 열기</h3><ol><li>제공된 SMDViewer.exe를 원하는 위치에 복사합니다. PNG나 DLL을 함께 복사할 필요는 없습니다.</li><li>앱을 실행하고 열기 또는 Ctrl+O로 .md/.smd 문서를 선택합니다.</li><li>파일을 EXE 아이콘에 끌어 놓거나, 문서의 연결 프로그램을 SMDViewer.exe로 지정해 열 수도 있습니다.</li><li>문서를 수정한 뒤에는 새로고침, Ctrl+R 또는 F5로 다시 읽습니다. 앱 자체는 원본을 편집하지 않습니다.</li></ol>
+          <div class="guide-table-scroll" role="region" aria-label="Windows 기능과 단축키" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">기능</th><th scope="col">버튼 / 단축키</th></tr></thead><tbody><tr><th scope="row">문서 열기</th><td>열기 / Ctrl+O</td></tr><tr><th scope="row">인쇄 미리보기·프린터 선택</th><td>인쇄 / Ctrl+P</td></tr><tr><th scope="row">A4 PDF</th><td>PDF 저장</td></tr><tr><th scope="row">단일 HTML 파일</th><td>HTML 저장 / Ctrl+S</td></tr><tr><th scope="row">검색</th><td>찾기 / Ctrl+F</td></tr><tr><th scope="row">다시 읽기</th><td>새로고침 / Ctrl+R / F5</td></tr><tr><th scope="row">확대·축소</th><td>+ / − / 100%</td></tr><tr><th scope="row">표시 모드</th><td>다크 모드 / 브라이트 모드. 시작 시 기본 다크</td></tr></tbody></table></div>
+          <h3>PDF·HTML 저장</h3><p>PDF는 A4와 배경색을 포함해 저장합니다. HTML은 스타일과 문서 폴더 안의 상대 경로 이미지를 포함한 단일 파일로 저장합니다. 원본의 배경색과 글자색을 유지합니다.</p><p>로컬 이미지는 문서와 같은 폴더 또는 하위 폴더에 둡니다. 외부 이미지는 서버 CORS 정책 때문에 HTML 내장이 거부될 수 있으며, 이 경우 앱이 오류를 표시합니다. 문서의 HTML 태그는 실행하지 않고 문자로 표시합니다.</p>
+          <h3>실행 환경</h3><p>.NET Framework와 Microsoft Edge WebView2 Runtime이 필요하며 EXE에 함께 포함되지는 않습니다. 일반 문서 읽기에는 관리자 권한이나 인터넷 연결이 필요하지 않습니다. 외부 이미지를 참조한 경우 해당 이미지를 읽을 때 네트워크를 사용합니다.</p>
+        </div><p class="lesson-note">근거: readme.md와 src/ViewerForm.cs의 버튼·파일 열기·저장 구현.</p>
+      </section>
+      <section id="vscode" class="guide-panel" aria-labelledby="heading-vscode">
+        <p class="home-eyebrow">GUIDE 03 · SMD PREVIEW 0.1.1</p><h2 id="heading-vscode">VSCode 미리보기</h2><p class="lesson-subtitle">왼쪽에서 작성하고 오른쪽에서 바로 확인하기</p>
+        <div class="lesson-body">
+          <ol><li>VSCode의 확장 → … → VSIX에서 설치(Install from VSIX...)에서 smd-preview-0.1.1.vsix를 선택합니다.</li><li>.smd 파일을 열고 언어 모드가 Starlit Markdown인지 확인합니다.</li><li>편집기 우상단의 Open Preview to the Side를 누릅니다. 명령 팔레트의 SMD: Open Preview to the Side, 파일 탐색기의 .smd 우클릭 메뉴로도 열 수 있습니다.</li><li>왼쪽 내용을 편집하면 저장하기 전에도 오른쪽 미리보기에 반영됩니다.</li></ol>
+          <div class="guide-table-scroll" role="region" aria-label="SMD Preview 조작" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">조작</th><th scope="col">사용법</th></tr></thead><tbody><tr><th scope="row">오른쪽 미리보기</th><td>Ctrl+K를 누른 다음 V 또는 Ctrl+Shift+V. macOS는 Cmd</td></tr><tr><th scope="row">새로고침</th><td>SMD: Refresh Preview</td></tr><tr><th scope="row">기본 표시 모드</th><td>smdPreview.theme: dark / bright. 미리보기 위쪽에서도 전환</td></tr><tr><th scope="row">미리보기 탭</th><td>같은 문서는 기존 탭 재사용. 문서별로 각각 열기·저장된 문서 탭 복원 지원</td></tr></tbody></table></div>
+          <h3>0.1.1의 스크롤 동기화</h3><p>원본 편집기를 위아래로 스크롤하면 해당 소스 줄에 맞춰 미리보기가 따라갑니다. 처음 열 때도 현재 위치에 맞추고, 숨겨지는 첫 줄 색상 설정과 긴 코드 블록 내부의 줄 위치도 반영합니다.</p><p>미리보기를 직접 스크롤해 따로 읽다가 원본을 다시 스크롤하면 동기화를 이어갑니다. 긴 본문은 블록 사이 위치를 보간하므로 글꼴과 자동 줄바꿈에 따라 약간의 차이는 생길 수 있습니다.</p>
+          <h3>이미지와 링크</h3><p>문서 폴더나 작업 영역 안의 상대 경로 이미지를 표시합니다. 작업 영역 밖 ../ 이미지는 허용된 리소스 범위 밖이면 표시하지 않습니다. 외부 HTTP(S) 이미지도 지원합니다. 웹 링크는 기본 브라우저로, 상대 경로 .smd/.md 링크는 편집기로 엽니다.</p><p>확장은 렌더러와 Starlit 문법 강조를 포함하므로 Starlitliter나 SMDViewer.exe를 따로 설치하지 않아도 됩니다. 인쇄·PDF·HTML 저장이 필요하면 Windows 뷰어를 사용하세요.</p>
+        </div><p class="lesson-note">근거: vscode-smd-preview/README.md·CHANGELOG.md·package.json·extension.js.</p>
+      </section>
+      <section id="smd" class="guide-panel" aria-labelledby="heading-smd">
+        <p class="home-eyebrow">GUIDE 04</p><h2 id="heading-smd">SMD 작성 규칙</h2><p class="lesson-subtitle">글자색·배경색과 Starlit 코드 강조</p>
+        <div class="lesson-body">
+          <div class="guide-table-scroll" role="region" aria-label="SMD 색상 기호" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">기호</th><th scope="col">결과</th></tr></thead><tbody><tr><th scope="row">/r · /#FF0000</th><td>빨간 글자</td></tr><tr><th scope="row">$r · $#FF0000</th><td>빨간 배경</td></tr><tr><th scope="row">/dr · $dr</th><td>어두운 빨강 글자 / 배경</td></tr><tr><th scope="row">/R · $R</th><td>연한 빨강 글자 / 배경</td></tr><tr><th scope="row">/d1</th><td>기본 글자색 복원. 배경색 유지</td></tr><tr><th scope="row">$d1</th><td>기본 배경색 복원. 글자색 유지</td></tr><tr><th scope="row">// · $$</th><td>문자 / · $ 출력</td></tr></tbody></table></div>
+          <p>색상 코드는 r o y l g t c s b v m p w k의 소문자·대문자이며 앞에 d를 붙일 수 있습니다. 56개 RGB 값은 Starlitliter의 기본 색상과 같습니다.</p>
+          <p><strong>SMDViewer의 본문 색상은 복원 기호가 나올 때까지 유지됩니다.</strong> 줄바꿈만으로 색상을 해제하지 않습니다. 인라인 코드 내부 색상은 해당 영역 안에서만 유지됩니다. 링크 URL과 일반 코드 블록의 원문은 변경하지 않습니다.</p>
+          <h3>문서 전체 기본색</h3><p>.smd의 맨 첫 줄 전체를 색상 기호로 쓰면 문서 배경과 기본 글자색을 정합니다. 이 줄은 본문에 출력하지 않습니다.</p>
+          <pre><code>$dK/w
+# SMD 문서
+
+진한 회색 배경과 흰색 기본 글자입니다.
+/r빨강 /o주황 /#FF00FF자홍 /d1기본 글자색
+$dr어두운 빨강 배경 $d1기본 배경</code></pre>
+          <p>첫 줄에 문서 색상을 지정하면 그 값이 우선하며 다크·브라이트 모드 메뉴는 비활성화됩니다. 첫 줄 설정이 없거나 .md 문서이면 모드를 선택할 수 있습니다. 제목 아래 선과 표 테두리도 문서 색상에 맞춰 표시합니다.</p>
+          <h3>인라인 코드와 코드 블록</h3><p>인라인 코드가 <samp>`$dr빨강`</samp>처럼 배경 지정으로 시작하면 코드 요소의 여백까지 배경색을 적용합니다.</p><p>코드 울타리의 언어를 starlit으로 쓰면 Starlitliter의 기본 문법 강조를 적용합니다. starlit$dr/w처럼 울타리에 기본 배경·글자색을 더할 수도 있습니다.</p>
+          <pre><code>```starlit$dr/w
+main:
+    OLED &lt;&lt; "Hello, Starlit!" &lt;&lt; OLED.ln
+```</code></pre>
+          <p>키워드·문자열·숫자·주석에는 문법 강조색이 우선합니다. 코드 문자열 안의 /r 같은 기호는 원문으로 남습니다. 개인 VSCode 강조 설정이나 외부 라이브러리 탐색까지 가져오는 방식은 아닙니다.</p>
+        </div><p class="lesson-note">근거: readme.md·readme.smd의 SMD 규칙. 이 항목은 SMDViewer 규칙을 설명하며 사이트 게시판의 색상 처리와 구분합니다.</p>
+      </section>
+      <section id="android" class="guide-panel" aria-labelledby="heading-android">
+        <p class="home-eyebrow">GUIDE 05 · ANDROID 1.0.0</p><h2 id="heading-android">Android</h2><p class="lesson-subtitle">휴대전화에서 받은 .smd / .md 읽기</p>
+        <div class="lesson-body">
+          <p>Android 8.0 이상과 최신 Android System WebView 또는 Chrome이 필요합니다. 제공 파일은 SMDViewer-android-1.0.0.apk이며, 로컬 설치용 개발 인증서로 서명한 APK로 Play 스토어 배포본은 아닙니다.</p>
+          <ol><li>제공된 APK를 휴대전화에 설치합니다.</li><li>카카오톡이나 파일 앱에서 받은 .smd/.md 문서를 내려받습니다.</li><li>파일 열기에서 SMDViewer를 선택합니다. 직접 선택할 수 없다면 공유 / 다른 앱으로 열기를 사용합니다.</li><li>또는 SMDViewer의 파일 열기로 다운로드한 문서를 고릅니다.</li></ol>
+          <p>.SMD/.MD처럼 대문자 확장자도 지원합니다. 파일명으로 형식을 판단하고, 파일명이 없으면 MIME 형식을 확인합니다. 구분할 수 없으면 SMD / Markdown 선택창을 표시합니다.</p>
+          <h3>문서·이미지와 보관</h3><ul><li>다크·브라이트 모드, 첫 줄 기본색, Starlit 강조와 두 손가락 확대·축소를 지원합니다.</li><li>UTF-8, UTF-8 BOM, UTF-16 BOM, CP949 한글 문서를 최대 16 MB까지 읽습니다.</li><li>받은 파일의 읽기 권한으로 동작하며 원본을 변경하지 않습니다. 마지막 문서의 텍스트와 형식을 앱 내부에 보관해 다시 표시할 수 있습니다.</li><li>카카오톡의 단일 파일 전달은 주변 이미지 파일의 권한을 주지 않으므로 이 버전은 상대 경로 이미지를 표시하지 않습니다. 문서에 넣은 data 이미지나 HTTPS 이미지를 사용합니다.</li><li>문서 텍스트는 오프라인으로 볼 수 있습니다. HTTPS 이미지를 읽을 때는 네트워크를 사용합니다.</li></ul>
+          <p>앱은 ACTION_VIEW와 ACTION_SEND 수신을 등록했습니다. 카카오톡 버전·파일 제공 방식에 따라 버튼 이름과 연결 과정은 달라질 수 있습니다.</p>
+        </div><p class="lesson-note">근거: apk/readme.md. 해당 빌드 설명서에서는 APK 빌드·서명·파일 처리 검증은 완료했으나 실기기·카카오톡에서 실제 열기는 미확인으로 기록했습니다.</p>
+      </section>
+      <section id="help" class="guide-panel" aria-labelledby="heading-help">
+        <p class="home-eyebrow">GUIDE 06</p><h2 id="heading-help">예제·문제 해결</h2><p class="lesson-subtitle">같은 내용을 .md와 .smd로 비교해 보세요</p>
+        <div class="lesson-body">
+          <p><a class="example-download" href="examples/smd-viewer/sample.smd" download>SMD 예제 다운로드 ↓</a> <a class="example-download" href="examples/smd-viewer/sample.md" download>일반 Markdown 예제 다운로드 ↓</a></p><p>두 파일은 같은 내용을 담습니다. .smd에서는 첫 줄 기본색과 본문 색상을 적용하고, .md에서는 색상 기호를 그대로 보여 줍니다. Starlit 코드 블록과 인라인 코드의 표시도 비교해 보세요.</p>
+          <div class="guide-table-scroll" role="region" aria-label="SMD Viewer 문제 해결" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">증상</th><th scope="col">확인할 내용</th></tr></thead><tbody>
+            <tr><th scope="row">색상 기호가 글자로 보임</th><td>문서 확장자가 .md인지 확인. SMD 처리는 .smd로 저장하고 열기</td></tr><tr><th scope="row">모드 선택이 비활성화됨</th><td>SMD 첫 줄 전체에 기본색 지정이 있는지 확인. 문서 지정 색상을 우선하는 정상 동작</td></tr><tr><th scope="row">색상이 계속 이어짐</th><td>SMD는 복원 기호까지 유지. /d1로 글자색, $d1로 배경색 복원</td></tr><tr><th scope="row">Windows 화면 초기화 실패</th><td>.NET Framework 4.7.2 이상과 Microsoft Edge WebView2 Runtime 설치 상태 확인</td></tr><tr><th scope="row">VSCode 미리보기 메뉴가 없음</th><td>SMD Preview 설치 여부와 .smd 확장자·Starlit Markdown 언어 모드 확인</td></tr><tr><th scope="row">VSCode 인쇄·PDF 버튼이 없음</th><td>저장·인쇄 기능은 Windows 앱에서 사용</td></tr><tr><th scope="row">이미지가 안 보임</th><td>Windows는 문서 폴더·하위 경로, VSCode는 허용 작업 영역을 확인. Android 1.0.0은 상대 경로 이미지 미지원</td></tr><tr><th scope="row">HTML 내보내기 중 외부 이미지 오류</th><td>이미지 서버의 CORS 정책 확인. 문서 폴더의 로컬 이미지로 바꿔 저장</td></tr><tr><th scope="row">원본 변경이 반영되지 않음</th><td>Windows는 원본 저장 후 새로고침. VSCode는 SMD: Refresh Preview와 활성 문서 확인</td></tr>
+          </tbody></table></div>
+          <h3>빌드 자료의 검증 범위</h3><p>제공된 설명서에는 공유 렌더러·확장 자동 테스트와 Android 빌드·서명 검증이 통과했다고 기록되어 있습니다. Windows WebView2 통합 검증은 초기화 오류, VSCode 개발 호스트 통합 검증은 시작 중 종료로 완료하지 못했고, Android 실기기도 미확인입니다. 빌드 파일 존재와 실제 화면·출력 성공은 구분해 안내합니다.</p>
+          <h3>참조 자료</h3><ul><li>SMDViewer/readme.md와 readme.smd</li><li>src/ViewerForm.cs와 공유 렌더러</li><li>vscode-smd-preview/README.md, CHANGELOG.md, package.json, extension.js</li><li>apk/readme.md와 빌드된 Android 1.0.0 APK</li></ul>
+          <p>사용 중 문제가 생기면 <a href="board.html">게시판</a>에 제품 종류, 버전, 문서 확장자와 오류 메시지를 남겨 주세요.</p>
+        </div><p class="lesson-note">제공된 SMDViewer 폴더의 현재 빌드를 설명하는 안내입니다.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="home-footer"><a href="index.html">Star-lit7 <b>AI</b></a><span>Design Your Style.</span><a href="support.html">기술지원 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
