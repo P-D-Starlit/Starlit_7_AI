@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Codex Starlit의 설치와 Starlit 코드 생성, 파일 관리 및 보고서 사용 가이드">
+  <title>Codex Starlit 가이드 | Star-lit7 AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="support.css">
+  <link rel="stylesheet" href="vscode_extensions.css">
+  <link rel="stylesheet" href="site-nav.css">
+  <script src="starlit_guide.js" defer></script>
+</head>
+<body class="home support-page">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar home-header">
+    <a class="brand" href="index.html" aria-label="Star-lit7 AI 메인 페이지"><img class="brand-mark" src="res/img24.png" alt="" width="46" height="46"><span>Star-lit7 <b>AI</b><small>Design Your Style</small></span></a>
+    <nav class="home-nav" aria-label="주요 메뉴"><a href="https://github.com/P-D-Starlit/Starlit_7_AI/releases/tag/v7.0.0">설치</a><a href="support.html">기술지원</a><a href="index.html#hardware">하드웨어</a><a href="board.html">게시판</a></nav>
+  </header>
+  <main id="main" class="home-main guide-main" tabindex="-1">
+    <nav class="support-breadcrumb" aria-label="현재 위치"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="support.html">기술지원</a><span aria-hidden="true">/</span><span aria-current="page">Codex Starlit</span></nav>
+    <section class="guide-intro" aria-labelledby="guide-title">
+      <p class="home-eyebrow">CODEX STARLIT GUIDE</p>
+      <h1 id="guide-title">Codex Starlit 사용 가이드</h1>
+      <p class="section-description">원하는 기능을 자연어로 설명하고, 선택한 Starlit 보드에 맞는 코드와 연동 프로젝트를 만들어 보세요.</p>
+    </section>
+    <p class="guide-source">Starlit7_Book의 Codex_Starlit 데스크톱 앱과 VS Code 확장 1.1.0 자료를 바탕으로 작성했습니다.</p>
+    <nav class="guide-topics" aria-label="Codex Starlit 가이드 항목">
+      <a id="topic-overview" class="topic-link" href="#overview">소개</a>
+      <a id="topic-start" class="topic-link" href="#start">사용방법</a>
+      <a id="topic-chat" class="topic-link" href="#modes">생성 모드</a>
+      <!-- <a id="topic-modes" class="topic-link" href="#modes">생성 모드</a>
+      <a id="topic-files" class="topic-link" href="#files">파일과 보고서</a>
+      <a id="topic-help" class="topic-link" href="#help">설정과 문제 해결</a> -->
+    </nav>
+    <div class="guide-content">
+      <!-- 각 guide-panel 안의 설명을 편집하면 해당 메뉴의 내용이 바뀝니다. -->
+      <section id="overview" class="guide-panel" aria-labelledby="heading-overview">
+        <p class="home-eyebrow">GUIDE 01</p><h2 id="heading-overview">Codex Starlit 소개</h2><p class="lesson-subtitle">Starlit 개발을 돕는 AI 코드 생성 도구</p>
+        <div class="lesson-body">
+          <img src="res/image30_Codex_Starlit.png" width="100%">
+          <p>Codex Starlit은 Codex CLI를 이용해 사용자의 요청에 맞는 Starlit 코드를 생성하는 도구입니다. 선택한 보드의 문법과 라이브러리 안내를 참고해 코드를 작성하며, 결과를 대화와 생성 폴더에서 확인할 수 있습니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="사용 환경" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">형태</th><th scope="col">사용 방법</th></tr></thead><tbody><tr><th scope="row">Windows 앱</th><td>독립된 데스크톱 창에서 대화와 생성 파일을 관리합니다.<br>11월 중 릴리즈 예정</td></tr><tr><th scope="row">VS Code 확장</th><td>VS Code 안에서 대화하고 편집기와 탐색기에서 파일 메뉴를 사용합니다. Windows x64용 VSIX가 제공됩니다.<br><a href="programs/codex-starlit-1.1.0-win32-x64.vsix">1.1.0 확장 다운로드</a></td></tr></tbody></table></div>
+          <p>보드별 코드 생성뿐 아니라 Android 연동 프로젝트, PC 제어용 STerM 코드, 코드 분석 보고서와 주석 추가 작업도 지원합니다.</p>
+        </div>
+      </section>
+      <section id="start" class="guide-panel" aria-labelledby="heading-start">
+        <p class="home-eyebrow">GUIDE 02</p><h2 id="heading-start">사용방법</h2><p class="lesson-subtitle">Starlit 언어로 코드를 생성합니다.</p>
+        <div class="lesson-body">
+          <h3>폴더 설정</h3>
+          <ul><li><code>폴더 변경</code>을 선택하셔서 코드를 작성할 폴더를 설정해 주세요.</li>
+          <li><span style="color: #FF0000">주의:</span> 경로에는 띄어쓰기가 없어야 하며, 한글 등의 문자도 사용 자제 부탁드립니다.</li></ul>
+          <img src="res/image31.png" width="100%">
+
+          <h3>프롬프트 작성</h3>
+          <ul><li>아래의 예시와 같은 방식으로 프롬프트를 작성합니다. 그리고 오른쪽 아래에 있는 전송 버튼을 눌러주세요.</li>
+          <li><span style="color: #FFFF00">참고:</span> AI 모델과 추론 강도를 상황에 알맞게 적용하시고, 타깃 보드를 고려하여 코드를 생성하세요.</li></ul>
+          <p class="guide-source">시리얼 포트에 Hello, World! 출력 코드 생성해 줘.</p>
+          <img src="res/image32.png" width="100%">
+
+          <h3>코드 생성</h3>
+          <ul><li>코드 생성이 완료되었으면 생성된 파일을 열어주세요.</li>
+          <li>생성된 파일 선택 - Open을 누르면 VSCode에서 열 수 있으며, 타깃 보드에 업로드하시면 됩니다.(보드 설정 별도)</li></ul>
+          <img src="res/image33.png" width="100%">
+        </div>
+      </section>
+      <!-- <section id="chat" class="guide-panel" aria-labelledby="heading-chat">
+        <p class="home-eyebrow">GUIDE 03</p><h2 id="heading-chat">대화와 코드 생성</h2><p class="lesson-subtitle">보드와 작업 폴더를 선택하고 원하는 동작을 요청하세요</p>
+        <div class="lesson-body">
+          <ol><li>입력창 아래에서 모델, 추론 강도, Starlit 보드와 생성 모드를 선택합니다.</li><li>생성 폴더를 확인한 뒤 원하는 기능과 조건을 입력합니다.</li><li>전송 버튼 또는 <kbd>Ctrl</kbd>+<kbd>Enter</kbd>로 요청합니다. <kbd>Enter</kbd>는 줄바꿈입니다.</li><li>응답과 생성 폴더의 파일을 확인합니다. 실행 중에는 정지 버튼으로 작업을 중지할 수 있습니다.</li></ol>
+          <h3>요청 예시</h3><pre><code>선택한 보드의 LED를 1초 간격으로 켜고 끄는 예제를 만들어 줘.
+사용한 라이브러리와 실행 방법도 간단히 설명해 줘.</code></pre>
+          <p>매 요청에 공통 문법과 보드별 지침을 읽어 전달합니다. 데스크톱 앱의 <strong>전송 지침 보기</strong>에서 전달 내용을 확인할 수 있습니다. 모델 목록은 설치된 CLI에서 조회하며, 조회에 실패하면 캐시 또는 기본 모델을 표시할 수 있습니다.</p>
+          <p>생성 폴더를 바꾸면 해당 폴더의 최근 대화를 복원합니다. 보드나 생성 모드를 변경하면 새 대화가 시작됩니다. 대화 삭제는 생성된 파일을 지우지 않습니다.</p>
+        </div>
+      </section> -->
+      <section id="modes" class="guide-panel" aria-labelledby="heading-modes">
+        <p class="home-eyebrow">GUIDE 03</p><h2 id="heading-modes">생성 모드</h2><p class="lesson-subtitle">목적에 맞게 코드와 연동 프로젝트를 요청합니다</p>
+        <div class="lesson-body">
+          <div class="guide-table-scroll" role="region" aria-label="생성 모드 비교" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">모드</th><th scope="col">생성 내용</th></tr></thead><tbody><tr><th scope="row">일반모드</th><td>선택한 보드에 맞는 Starlit 코드를 생성합니다.</td></tr><tr><th scope="row">APK 연동모드</th><td>Starlit 펌웨어와 Bluetooth 연동 Android 앱 프로젝트를 함께 생성하도록 요청합니다. Android 프로젝트는 생성 폴더의 <code>android-app/</code>에 둡니다.</td></tr><tr><th scope="row">뜨따뜨따 모드</th><td>보드 소스와 PC에서 제어하는 STerM 소스를 같은 생성 폴더에 작성하도록 요청합니다.</td></tr></tbody></table></div>
+          <p>연동 모드에서는 두 프로그램이 사용할 통신 규약과 시험 방법을 <code>LINK_PROTOCOL.md</code>에 정리하도록 요청합니다. Bluetooth 방식, 모듈, 핀과 속도 등은 실제 사용하는 장치의 자료를 확인하세요.</p>
+          <p>APK 빌드에는 Android SDK와 Gradle 환경이 필요합니다. 뜨따뜨따 모드에는 <code>studio/STerM/AI/Default.md</code>가 필요하며, 보드 선택에는 실제 제어할 하드웨어 보드를 지정합니다.</p>
+        </div>
+      </section>
+      <!-- <section id="files" class="guide-panel" aria-labelledby="heading-files">
+        <p class="home-eyebrow">GUIDE 05</p><h2 id="heading-files">파일과 보고서</h2><p class="lesson-subtitle">생성한 파일을 열고 분석 보고서나 주석을 추가합니다</p>
+        <div class="lesson-body">
+          <p>생성 폴더의 파일은 확장자별로 표시됩니다. 파일 메뉴에서 사용할 수 있는 기능은 파일 형식에 따라 달라집니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="파일 메뉴" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">메뉴</th><th scope="col">기능</th></tr></thead><tbody><tr><th scope="row">Open</th><td>VS Code에서 파일을 엽니다.</td></tr><tr><th scope="row">Open SMDViewer / Open Browser</th><td>Markdown·SMD 문서 또는 HTML 보고서를 엽니다.</td></tr><tr><th scope="row">Generate Code</th><td>SL7 → SL4, SH7 → SH4, ST7 → STM 코드를 생성합니다.</td></tr><tr><th scope="row">Code / HTML / SMD Report</th><td>코드의 동작과 함수, 개선 사항을 정리한 보고서를 생성합니다. HTML과 SMD는 테마 색상을 선택할 수 있습니다.</td></tr><tr><th scope="row">Add Comment</th><td>설정한 언어와 선택한 스타일로 주석을 추가합니다.</td></tr></tbody></table></div>
+          <p>파일 메뉴 작업은 기존 출력이 있으면 <code>backups</code> 폴더에 백업하고, 별도 작업 폴더에서 결과를 만든 후 검사하여 반영합니다. 일반 대화에서 자유롭게 생성하는 작업은 이 파일 메뉴 절차와 별개입니다.</p>
+          <p>SMD 보고서를 보는 방법은 <a href="smd_viewer.html">SMD Viewer 사용 가이드</a>를 참고하세요.</p>
+        </div>
+      </section>
+      <section id="help" class="guide-panel" aria-labelledby="heading-help">
+        <p class="home-eyebrow">GUIDE 06</p><h2 id="heading-help">설정과 문제 해결</h2><p class="lesson-subtitle">실행 경로와 보드 자료를 확인해 보세요</p>
+        <div class="lesson-body">
+          <div class="guide-table-scroll" role="region" aria-label="문제 해결" tabindex="0"><table class="guide-table"><thead><tr><th scope="col">상황</th><th scope="col">확인 사항</th></tr></thead><tbody><tr><th scope="row">Codex CLI를 찾을 수 없음</th><td>CLI 설치와 로그인을 확인하고 환경설정에서 실행 경로를 지정합니다. npm CLI는 Node.js도 필요합니다.</td></tr><tr><th scope="row">PowerShell에서 로그인 명령이 막힘</th><td>실행 정책으로 <code>codex</code>가 막히면 <code>codex.cmd login</code>을 사용합니다.</td></tr><tr><th scope="row">보드를 사용할 수 없음</th><td>설치 루트 아래 공통 문법과 해당 보드의 <code>AI/Default.md</code>가 있는지 확인합니다.</td></tr><tr><th scope="row">모델 목록을 불러오지 못함</th><td>CLI 로그인과 실행 상태를 확인하고 모델 목록을 새로고침합니다. CLI 캐시가 있으면 캐시된 목록이 표시될 수 있습니다.</td></tr><tr><th scope="row">SMD 문서가 열리지 않음</th><td>SMDViewer 설치 여부와 환경설정의 실행 파일 경로를 확인합니다.</td></tr></tbody></table></div>
+          <p>환경설정에서 설치 경로, CLI 경로와 주석 언어 등을 바꿀 수 있습니다. 앱은 기존 Codex CLI 로그인과 설정을 사용합니다.</p>
+          <p>생성된 코드와 통신 설정은 실제 보드 및 사용 환경에 맞게 확인하고 시험하세요. 질문이나 사용 후기는 <a href="board.html">게시판</a>에 남길 수 있습니다.</p>
+        </div><p class="lesson-note">참고 자료: Codex_Starlit/README.md, VSIX/README.md 및 VSIX/extension/README.md.</p>
+      </section> -->
+    </div>
+  </main>
+  <footer class="home-footer"><a href="index.html">Star-lit7 <b>AI</b></a><span>Design Your Style.</span><a href="support.html">기술지원 <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
